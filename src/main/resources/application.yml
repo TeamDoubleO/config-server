@@ -14,6 +14,9 @@ spring:
           default-label: develop
           search-paths:
             - employee-service
+            - admin-service
+            - access-service
+            - area-service
             - api-gateway
             - service-discovery
     bus:
