@@ -20,7 +20,12 @@ jobs:
           java-version: 21
 
       - run: chmod +x ./gradlew
-      - run: ./gradlew test
+
+      - name: Run tests
+        run: ./gradlew test
+
+      - name: Build JAR
+        run: ./gradlew build
 
       - name: Docker login
         uses: docker/login-action@v3
