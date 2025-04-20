@@ -1,23 +1,19 @@
 name: Docker Push on PR Target
 
 on:
-  pull_request_target:
-    types: [opened, synchronize]
+  push:
     branches:
       - develop
 
 jobs:
   docker-build-and-push:
     runs-on: ubuntu-latest
-    if: github.actor == github.repository_owner
+
     steps:
       - name: Checkout source
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
 
-      - name: Set up Java and Build
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -32,9 +28,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push
+      - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: sunwoo11/config-server:dev
+          tags: sunwoo11/config-server:latest
