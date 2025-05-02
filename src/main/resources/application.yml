@@ -13,14 +13,19 @@ spring:
           password: ${GIT_TOKEN}
           default-label: develop
           search-paths:
+            - service-discovery
+
+            - mobile-gateway
             - member-service
-            - admin-service
-            - hospital-service
             - did-service
+
+            - admin-gateway
+            - admin-service
+            - tenant-service
+            - hospital-service
             - pass-service
             - patient-service
-            - api-gateway
-            - service-discovery
+
     bus:
       enabled: true
 
