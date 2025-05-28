@@ -25,6 +25,7 @@ spring:
             - hospital-service
             - pass-service
             - patient-service
+            - entrance-service
 
     bus:
       enabled: true
