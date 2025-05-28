@@ -17,7 +17,7 @@ spring:
 
             - mobile-gateway
             - member-service
-            - did-service
+            - did-agent
 
             - admin-gateway
             - admin-service
