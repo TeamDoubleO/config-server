@@ -25,6 +25,7 @@ spring:
             - hospital-service
             - pass-service
             - patient-service
+            - log-service
 
             - entrance-gateway
             - entrance-service
